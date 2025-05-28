@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Analysis Dashboard</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Header Styling */
+        .header {
+            position: absolute;
+            top: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #ffdd57;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1rem;
+            color: #f0f0f0;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            position: absolute;
+            top: 100px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-buttons button {
+            background: #ffdd57;
+            color: #1e3c72;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .nav-buttons button:hover {
+            background: #ffc107;
+            transform: scale(1.1);
+        }
+
+        /* Fullscreen Dashboard Container */
+        .dashboard-container {
+            position: relative;
+            width: 90%;
+            height: 70%;
+            margin-top: 120px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer Styling */
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Retail Analysis Dashboard</h1>
+        <p>Explore data insights across multiple dashboards</p>
+    </div>
+    <br>
+    <div class="nav-buttons">
+        <button onclick="loadDashboard(1)">Page 1</button>
+        <button onclick="loadDashboard(2)">Page 2</button>
+        <button onclick="loadDashboard(3)">Page 3</button>
+    </div>
+    <div class="dashboard-container">
+        <iframe id="dashboard-frame" title="Dashboard Viewer" src="https://app.powerbi.com/view?r=eyJrIjoiMTVlZWU5NjQtOWQwNS00NjkyLWEwYTUtNDQ1NWEyZTQxMTVkIiwidCI6ImNhYTJhOTI5LTVhZTAtNGMxOS04MGIzLWE4OGZlMjg5ZDQ3OSJ9" allowfullscreen="true"></iframe>
+    </div>
+    <footer class="footer">
+        <p>&copy; Batch 8 project All rights reserved.</p>
+    </footer>
+
+    <script>
+        function loadDashboard(page) {
+            const iframe = document.getElementById('dashboard-frame');
+            let dashboardUrls = {
+                1: 'https://app.powerbi.com/view?r=eyJrIjoiYjVhODQ2NzgtMmVmZS00NmRhLTkyZTgtMjY0NDFmZjZlNzBkIiwidCI6ImNhYTJhOTI5LTVhZTAtNGMxOS04MGIzLWE4OGZlMjg5ZDQ3OSJ9&pageName=7ab6087a0a101dd3e0d1',
+                2: 'https://app.powerbi.com/view?r=eyJrIjoiYjVhODQ2NzgtMmVmZS00NmRhLTkyZTgtMjY0NDFmZjZlNzBkIiwidCI6ImNhYTJhOTI5LTVhZTAtNGMxOS04MGIzLWE4OGZlMjg5ZDQ3OSJ9&pageName=347819617dc2d55b637c',
+                3: 'https://app.powerbi.com/view?r=eyJrIjoiYjVhODQ2NzgtMmVmZS00NmRhLTkyZTgtMjY0NDFmZjZlNzBkIiwidCI6ImNhYTJhOTI5LTVhZTAtNGMxOS04MGIzLWE4OGZlMjg5ZDQ3OSJ9&pageName=45ae8816085b021490cc'
+            };
+            iframe.src = dashboardUrls[page];
+        }
+    </script>
+</body>
+</html>
